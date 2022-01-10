@@ -1,0 +1,60 @@
+{% extends 'medecines/layout.html' %}
+
+{% block content %}
+<h1>LISTE DES ENFANTS ENREGISTRÉS...</h1>
+
+<style>
+  body {
+      background: #a7672b;
+  }
+</style>
+
+<div class="col-12 d-flex justify-content-end mb-2">
+   <a class="btn btn-primary sm " href="{% url 'ajouter-enfant' %}">Enregistrer un Enfants</a>
+   </div>
+  <table class="table table-bordered table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Date de naissance</th>
+              <th>Lieu de naissance</th>
+              <th>Numero social</th>
+              <th>Numero declaration</th>
+              <th>sexe</th>
+              <th>acte</th>
+              <th>pere</th>
+              <th>Mere</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for enfant  in  Enfants %}
+    <tr class="success">
+      <td>{{enfant.nom}}</td>
+      <td>{{enfant.prenom}}</td>
+      <td>{{enfant.date_de_naissance}}</td>
+      <td>{{enfant.lieu_de_naissance}}</td>
+      <td>{{enfant.num_social}}</td>
+      <td>{{enfant.num_declaration}}</td>
+      <td>{{enfant.sexe}}</td>
+      <td>{{enfant.acte}}</td>
+      <td>{{enfant.pere}}</td>
+      <td>{{enfant.mere}}</td>
+      
+      <td>
+
+        <a class="btn btn-outline-primary sm" href="{% url 'editer-enfant' enfant.id %}">Editer</a>
+
+        <a class="btn btn-outline-danger sm" href="{% url 'supprimer-enfant' enfant.id %}">Supprimer</a>
+
+        <a class="btn btn-outline-info sm" href="{% url 'montrer-enfant' enfant.id %}">Detailes</a>
+
+      </td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

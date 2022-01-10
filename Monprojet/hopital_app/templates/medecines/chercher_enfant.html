@@ -1,0 +1,24 @@
+{% extends 'medecines/layout.html' %}
+
+{%block content%}
+    <center>
+          {% if searched %}
+          <h1>Vous chercher {{searched}}</h1>
+                </br>
+        
+                
+            {% for enfant in enfants %}
+                        <a href="{% url 'montrer-enfant' enfant.id %}">
+                        Enfant Name: {{enfant.nom}}
+                    </a>
+                </br>       
+            {% endfor %}
+
+
+          {% else %}
+             <h1>Cherchez-vous un Enfant...</h1>
+          {% endif %}
+    
+    </center>
+
+{% endblock %}

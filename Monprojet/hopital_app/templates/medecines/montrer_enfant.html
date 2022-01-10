@@ -1,0 +1,62 @@
+{%extends 'medecines/layout.html' %}
+
+{%block content%}
+<div class="row">
+    <div class="col-sm-2"></div>
+    
+  
+<div class="shadow p-4 mb-5 bg-body rounded col-md-8">
+    <center>
+
+        <h1>Details d'un Enfant...</h1>
+    </br>
+{% comment %} 
+    {% for pere in enfant.pere.all %}
+       {{pere}}
+    {% endfor %}
+ {% endcomment %}
+    <table class="table table-bordered table-striped table-hover">
+        <tbody>            
+          <tr class="success"> 
+            
+            <td><strong>ID: </strong>{{enfant.id}}</td>
+          </tr>
+
+            <tr class="success"> 
+            <td><strong>Nom :</strong> {{enfant.nom}}</td>
+            </tr>
+            <tr class="success">
+            <td><strong> Prenom:</strong> {{enfant.prenom}}</td>
+            </tr>
+
+            <tr class="success"> 
+            <td><strong>Sexe:</strong> {{enfant.sexe}}</td>
+          </tr>
+
+            <tr class="success"> 
+            <td><strong>Date de naissance:</strong> {{enfant.date_naissance}}</td>
+          </tr>
+
+          
+          <tr class="success"> 
+            <td><strong>Lieu de naissance:</strong> {{enfant.lieu_naissance}}</td>
+           </tr>
+
+        </tbody>
+    </table>
+
+      <div class="row">
+        <div class="col-sm-4 p-2 mb-2"> 
+        <strong>Le Pere : </strong> 
+        <p> {{enfant.pere.nom}} {{enfant.pere.prenom}} </p>
+        </div>
+        <div class="col-sm-4 p-2 mb-2">
+          <strong>La Mere : </strong> <br> {{enfant.mere.nom}} {{enfant.mere.prenom}}
+        </div>
+
+    </div>
+
+    </center>
+</div>
+</div> 
+{%endblock%}
